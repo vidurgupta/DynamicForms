@@ -1,0 +1,54 @@
+<div ng-init="checkuser()" >
+    <div class="container-fluid" style="width:70%" >
+        <div class="row">
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                <form method="post" name="fillform" ng-init="displayForms()">
+                    <div class="form-group " >
+                        <label class="control-label " for="name" >
+                            Form Name
+                        <span class="asteriskField">
+                         *
+                    </span>
+                        </label>
+                        <select ng-model="form.name" ng-change="displayit()">
+                            <option ng-repeat="forms in formtable">
+                            {{forms.name}}
+                        </option></select>
+
+                    </div>
+                    <div class="form-group " ng-repeat="attribute in attributeTable track by $index" >
+
+                                                 <div class="form-group " ng-if="attribute.type=='Text'">
+                                                       <label class="control-label " style="display: inline-block">{{attribute.label}}</label>
+                                                    <input class="form-control" type="text" ng-model="attributeTable.value[$index]" required="required">
+                                                   </div>
+                                                   <div class="form-group " ng-if="attribute.type=='Number'">
+                                                       <label class="control-label ">{{attribute.label}}</label>
+                                                        <input class="form-control" type="number" ng-model="attributeTable.value[$index]" required="required">
+                                                   </div>
+                                                   <div class="form-group " ng-if="attribute.type=='Numeric'">
+                                                       <label class="control-label ">{{attribute.label}}</label>
+                                                        <input class="form-control" type="number"   ng-model="attributeTable.value[$index]" required="required">
+                                                   </div>
+                                                    <div class="form-group " ng-if="attribute.type=='Date'">
+                                                       <label class="control-label ">{{attribute.label}}</label>
+                                                        <input class="form-control" type="date"  ng-model="attributeTable.value[$index]" required="required">
+
+                                                    </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input class="btn btn-primary " name="submit" type="submit" ng-click="createTransaction()" ng-disabled="fillform.$invalid"/>
+                        </div>
+                        <div  class="alert alert-danger" ng-show="errorcreate">
+                            {{errorcreate}}
+                        </div>
+                        <div  class="alert alert-success" ng-show="inserted">
+                            {{inserted}}
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

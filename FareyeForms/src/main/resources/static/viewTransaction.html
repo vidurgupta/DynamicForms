@@ -1,0 +1,26 @@
+
+<div ng-init="checkuser()">
+   <div class="form-group " ng-init="displayForms()">
+
+    <label class="control-label " for="name" >
+        Form Name
+                        <span class="asteriskField">
+                         *
+                    </span>
+    </label>
+    <select ng-model="form.name" ng-change="displayRecords()">
+        <option ng-repeat="forms in formtable">
+            {{forms.name}}
+        </option></select>
+       <table class="table table-bordered">
+       <tr >
+               <td ng-repeat="attribute in attributeTable|orderBy:'id'">{{attribute.label}}</td>
+       </tr>
+        <tr ng-repeat="value in recordTable">
+        <td ng-repeat="record in value.attributeValueSet|orderBy:'attributeId'">{{record.attributevalue}}</td>
+        </tr>
+    </table>
+
+
+</div>
+</div>

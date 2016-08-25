@@ -1,0 +1,32 @@
+<div ng-init="checkanalyst()" >
+    <br/>
+    <h3>Your Markers</h3>
+    <hr/>
+    <div style="display: inline-block" ng-init="displayMarkers()">
+        <table  class="table table-bordered" >
+            <th>Marker Name </th>
+            <th>Marker Type </th>
+            <th>Create Date </th>
+            <th>Approver Name</th>
+            <th>Marker Latitude</th>
+            <th>Marker Longitude </th>
+            <th>Approve Date </th>
+            <th>Marker Status</th>
+            <tr ng-repeat="record in markerTable">
+                <td>{{record.name}}</td>
+                <td>{{record.type}}</td>
+                <td>{{record.createTime| date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
+                <td>{{record.approver}}</td>
+                <td>{{record.lat}}</td>
+                <td>{{record.lng}}</td>
+                <td>{{record.responseTime| date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
+                <td>{{record.status}}</td>
+            </tr>
+        </table>
+
+        <div  class="alert alert-danger" ng-show="noMarker">
+            {{noMarker}}
+        </div>
+    </div>
+
+</div>

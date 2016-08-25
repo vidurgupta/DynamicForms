@@ -1,0 +1,34 @@
+<div ng-init="checkadmin()" >
+    <div class="container-fluid" style="width:50%" >
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <form method="post" name="fillform" ng-init="displayForms()">
+                    <div class="form-group " >
+                        <label class="control-label " for="name" >
+                            Form Name
+                        <span class="asteriskField">
+                         *
+                    </span>
+                        </label>
+                        <select ng-model="form.name" ng-change="displayit()">
+                            <option ng-repeat="forms in formtable">
+                                {{forms.name}}
+                            </option></select>
+
+                    </div>
+                    <div class="form-group " ng-repeat="attribute in attributeTable track by $index">
+                        <label class="control-label " for="name" >
+                            {{attribute.label}}:{{attribute.type}}
+                        </label>
+
+                    </div>
+
+                        <div  class="alert alert-danger" ng-show="errorcreate">
+                            {{errorcreate}}
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div style="margin:2% auto" ng-controller="user" ng-init="checkuser()">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="sidebar-nav">
+                    <div class="navbar navbar-default" role="navigation">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <spaan class="icon-bar"></spaan>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <span class="visible-xs navbar-brand">Sidebar menu</span>
+                        </div>
+                        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a ui-sref=".createTransaction">Fill Form</a></li>
+                                <li><a ui-sref=".showTransaction">View Records</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ui-view ngclass="col-sm-9">
+                HELLO {{user}}
+            </div>
+        </div>
+    </div>
+</div>

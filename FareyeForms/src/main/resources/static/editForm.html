@@ -1,0 +1,55 @@
+<div ng-init="checkadmin()">
+    <div class="container-fluid" style="width:50%" >
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <form method="post" name="formdetail">
+                    <div class="form-group " ng-init="displayForms()">
+                        <label class="control-label " for="name" >
+                            Form Name
+                        <span class="asteriskField">
+                         *
+                    </span>
+                        </label>
+                        <select ng-model="form.name">        <option ng-repeat="forms in formtable">
+                            {{forms.name}}
+                        </option></select>
+                    </div>
+                    <div class="form-group " ng-repeat="field in attribute.label track by $index">
+                        <label class="control-label " for="name" >
+                            Label
+                        <span class="asteriskField">
+                         *
+                    </span>
+                        </label>
+                        <input class="form-control" id="attributename" name="attributename" type="text" ng-model="attribute.label[$index]" required="text"/>
+
+                        <label class="control-label " for="name" >
+                            Type
+                        <span class="asteriskField">
+                         *
+                    </span>
+                        </label>
+                        <select ng-model='attribute.type[$index]'>
+                            <option name="Text">Text</option>
+                            <option name="Text">Number</option>
+                            <option name="Text">Decimal</option>
+                            <option name="Text">Date</option>
+
+                        </select>
+                        <button ng-click="delete($index)" ng-disabled="formdetail.$invalid">Delete Attribute</button>
+                    </div>
+
+                    <div class="form-group">
+                        <div>
+                            <button ng-click="add()" ng-disabled="formdetail.$invalid">Add Attribute</button>
+                            <input class="btn btn-primary " name="submit" type="submit" ng-click="editForm()" ng-disabled="formdetail.$invalid"/>
+                        </div>
+                        <div  class="alert alert-danger" ng-show="error">
+                            {{error}}
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

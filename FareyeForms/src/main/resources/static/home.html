@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <TITLE>DFG</TITLE>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-ui-router.js"></script>
+    <script src="js/Modules/newModule.js"></script>
+   <script src="js/Controller/myController.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/one-page-wonder.css"/>
+
+    <link rel="stylesheet" href="css/design.css" />
+
+
+</head>
+<body ng-app="formApp" ng-controller="home" ng-init="find_user()">
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="text-center" style="color:white;display:inline-block">
+                    FORM GENERATOR
+                </h3>
+                <h4 class=" navbar-brand" style="float:right;display:inline-block">
+
+                    <a class=" navbar-brand"  > {{ user }}  </a>
+
+                    <a class=" navbar-brand"  th:href="@{/logout}">Logout</a>
+                </h4>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+<div class="container" style="margin-top:10%;height:700px;width:700px">
+<div class="row">
+    <div ui-view='A' class="col-sm-12" style="height:650px;width:650px">
+    </div>
+
+</div>
+</div>
+
+<div class="container">
+
+    <hr class="featurette-divider"/>
+
+
+
+    <footer style="height: 5%">
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="text-center">Copyright &copy; vidur GIS 2016</p>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+
+
+
+
+
+</body>
+</html>
